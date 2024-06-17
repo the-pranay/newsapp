@@ -41,6 +41,7 @@ static propTypes={
     this.updateNews();
   }
 
+
   handlePreviousClick = async () => {
     console.log("previous");
     this.setState({page:this.state.page -1});
