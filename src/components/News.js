@@ -7,7 +7,7 @@ export class News extends Component {
 static defaultProps={
   country:'in',
   pageSize:6,
-  category:'General'
+  category:'general'
 }
 
 static propTypes={
@@ -81,8 +81,8 @@ static propTypes={
                 <NewsItem
                   title={element.title ? element.title.slice(0, 45) : ""}
                   description={element.description ? element.description.slice(0, 88) : ""}
-                  imageUrl={element.urlToImage}
-                  newsUrl={element.url}
+                  imageUrl={element.urlToImage}  newsUrl={element.url} author={element.author} date={element.publishedAt}
+                  source={element.source.name}
                 />
               </div>
             );
