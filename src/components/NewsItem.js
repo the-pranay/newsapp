@@ -6,7 +6,7 @@ export class NewsItem extends Component {
     return (
       <div className="my-3">
         <div className="card">
-        <span class="position-absolute top-0 translate-middle badge rounded-pill bg-success" style={{left:'90%' , zIndex:'1'}}>{source}</span>
+        <span className="position-absolute top-0 translate-middle badge rounded-pill bg-success" style={{left:'90%' , zIndex:'1'}}>{source}</span>
           <img src={!imageUrl?"https://images.moneycontrol.com/static-mcnews/2024/06/20240612102432_sensex_nifty-market.jpg":imageUrl } className="card-img-top" alt="..." />
           <div className="card-body">
             <h5 className="card-title">{title}</h5> 
