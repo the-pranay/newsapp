@@ -4,6 +4,7 @@ import NewsItem from './NewsItem';
 import Spinner from './Spinner';
 import InfiniteScroll from "react-infinite-scroll-component";
 
+
 export class News extends Component {
 static defaultProps={
   country:'in',
@@ -34,6 +35,7 @@ capitalizeFirstLetter =(string) =>{
 }
 
   async updateNews(){
+    this.props.setProgress(10);
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e2870ad7805b4cff95ea0800dca80234&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({loading:true});
     let data = await fetch(url);
@@ -42,6 +44,7 @@ capitalizeFirstLetter =(string) =>{
     this.setState({ articles: parsedData.articles, 
                     totalResults: parsedData.totalResults,
                     loading:false});
+    this.props.setProgress(100);
   }
 
   async componentDidMount() {
