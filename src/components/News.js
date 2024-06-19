@@ -10,7 +10,7 @@ const [articles, setArticles] = useState([]);
 const [loading,setLoading]=useState(true)
 const [page,setPage]=useState(1)
 const [totalResults,setTotalResults]=useState(0)
-// document.title=`${capitalizeFirstLetter(props.category)} - NewsApp`;
+
 
 const capitalizeFirstLetter =(string) =>{
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -30,25 +30,15 @@ const capitalizeFirstLetter =(string) =>{
   }
 
   useEffect(() => {
+    document.title=`${capitalizeFirstLetter(props.category)} - NewsApp`;
     updateNews();
+    // eslint-disable-next-line
   },[]);
   
 
-//  const handlePreviousClick = async () => {
-//     console.log("previous");
-//     setPage(page-1)
-//     updateNews();
-//   };
-
-//  const handleNextClick = async () => {
-//     console.log("next");
-//     setPage(page+1)
-//     updateNews();
-//   };
-
  const fetchMoreData = async () => {
+   const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=e2870ad7805b4cff95ea0800dca80234&page=${page+1}&pageSize=${props.pageSize}`;
    setPage(page+1) 
-   const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=e2870ad7805b4cff95ea0800dca80234&page=${page}&pageSize=${props.pageSize}`;
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
@@ -58,7 +48,7 @@ const capitalizeFirstLetter =(string) =>{
 
   return (
     <>
-        <h1 className="text-center" style={{margin:'35px 0px'}}>NewsApp - Top Headlines from {capitalizeFirstLetter(props.category)}</h1>
+        <h1 className="text-center" style={{margin:'35px 0px',marginTop:'90px'}}>NewsApp - Top Headlines from {capitalizeFirstLetter(props.category)}</h1>
         {loading && <Spinner/>}
         <InfiniteScroll
           dataLength={articles.length}
