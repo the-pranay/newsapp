@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import News from './components/News';
 import LoadingBar from 'react-top-loading-bar'
+import './test-env';  // Import test file
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,6 +14,11 @@ const App= () => {
   
   const[progress,setProgress]=useState(0)
 
+  // Debug environment variables at App level
+  console.log('App level environment check:', {
+    REACT_APP_NEWS_API_KEY: process.env.REACT_APP_NEWS_API_KEY,
+    NODE_ENV: process.env.NODE_ENV
+  });
 
     return (
       <div>

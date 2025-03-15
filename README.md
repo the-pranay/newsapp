@@ -2,6 +2,19 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Environment Variables Setup
+
+This project uses environment variables to store sensitive information like API keys. To set up your environment:
+
+1. Create a `.env.local` file in the root directory of the project
+2. Add your News API key to the file in the following format:
+   ```
+   REACT_APP_NEWS_API_KEY=your_news_api_key_here
+   ```
+3. You can use the `.env.example` file as a template
+
+Note: The `.env.local` file is included in `.gitignore` to prevent sensitive information from being committed to version control.
+
 ## Available Scripts
 
 In the project directory, you can run:
